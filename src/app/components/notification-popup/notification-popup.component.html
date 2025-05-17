@@ -1,0 +1,20 @@
+<StackLayout class="notification-popup" >
+    <StackLayout (tap)="onOverlayDummyTouch()" class="notification" *ngFor="let notification of notifications">
+        <FlexboxLayout  class="message"
+                [ngClass]="{
+                    'success': notification.type === 'success',
+                    'info': notification.type === 'info',
+                    'warning': notification.type === 'warning',
+                    'error': notification.type === 'error'
+                }"
+                justifyContent="space-between"
+                borderColor="#063215" borderWidth="1">
+    
+            <Label  [text]="notification.message"></Label>
+            <Image  class="ui-icon cross" src="~/assets/images/cross.png" 
+                    height="30" width="30"
+                    (tap)="closeNotification(notification)"></Image>
+
+        </FlexboxLayout>
+    </StackLayout>
+</StackLayout>

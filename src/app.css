@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ns-root {
+    --primary-color: #f8cf84;
+    --accent-color: #f2ae1c;
+    --secondary-color: #4c7031;
+    --light-color: #f3dfbf;
+    --dark-color: #ecc165;
+    --complementary-color: #84ADF8;
+    --complementary-color-light: #c3d5f6;
+    --complementary-color-dark: #3e4e6c;
+    --text-color-light: #fceccd;
+    --text-color-dark: #063215;
+}
+.page{
+    padding: 20px 25px;
+    background-color: var(--light-color);
+}
+.btn {
+    width: 100%;
+    margin: 30px 0;
+    padding: 15 20;
+    font-size: 18;
+    border-radius: 15px;
+    color: var(--text-color-light);
+}
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+.btn-complementary {
+    background-color: var(--complementary-color);
+    color: white;
+}
+
+.title{
+    font-size: 40px;
+    text-align: center;
+    color: var(--text-color-dark);
+    font-weight: 600;
+    margin: 80px;
+}

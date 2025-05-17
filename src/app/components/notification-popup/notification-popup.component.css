@@ -1,0 +1,28 @@
+.notification-popup {
+    width: 100%;
+    height: auto;
+    color: rgb(0, 0, 0);
+}
+.notification{
+    padding: 20px;
+    padding-bottom: 0;
+}
+.message {
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 10px;
+    background-color: var(--light-color);
+}
+.noitification .warning{
+    background-color: rgb(60, 255, 0);
+}
+.notification .error{
+    background-color: rgb(255, 132, 132);
+}
+.notification .success{
+    background-color: rgb(91, 255, 165);
+}
+.notification .info{
+    background-color: rgb(176, 176, 255);
+}

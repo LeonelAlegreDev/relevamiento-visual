@@ -1,0 +1,81 @@
+<FlexboxLayout class="page">
+    <Image class="ns-image" height="200" width="200" src="~/assets/images/app-icon.png"></Image>
+    <!-- EMAIL -->
+    <StackLayout class="input-field">
+        <Label class="label" text="Ingresá tu email"></Label>
+        <TextField  class="input"
+                    hint="Email" 
+                    keyboardType="email" 
+                    autocorrect="false" 
+                    autocapitalizationType="none"
+                    [(ngModel)]="email"
+                    [formControl]="emailControl"/>
+    </StackLayout>
+
+    <!-- PASSWORD  TODO: agregar formControl -->
+    <StackLayout class="input-field">
+        <Label class="label" text="Creá una contraseña"></Label>
+        <TextField  class="input"
+                    hint="Contraseña" 
+                    autocorrect="false" 
+                    autocapitalizationType="none"
+                    secure="true"
+                    [(ngModel)]="password"
+                    [formControl]="passwordControl"/>
+    </StackLayout>
+    
+    <StackLayout class="input-field">
+        <Button text="Iniciar sesión"
+                class="btn btn-primary"
+                (tap)="signIn()"></Button>
+    </StackLayout>
+  
+    <StackLayout class="input-field">
+        <Label class="redirect" text="¿No tenes una cuenta?"></Label>
+        <Label class="redirect" text="¡Crea una cuenta ahora!"></Label>
+    </StackLayout>
+    
+    <StackLayout class="accounts">
+        <Button text="Usar cuentas demo"
+                class="btn btn-secondary"
+                (tap)="switchModalState()"></Button>
+    </StackLayout>
+</FlexboxLayout>
+
+<AbsoluteLayout #notificationPopup class="notifications"></AbsoluteLayout>
+<AbsoluteLayout class="modal-accounts"
+                [ngStyle]="{ 'visibility': isModalVisible ? 'visible' : 'collapse' }"
+                (tap)="dummyTouch()">
+    <FlexboxLayout class="modal-wrapper">
+        <FlexboxLayout class="modal-content">
+            <Label text="X" class="close-modal-btn" (tap)="switchModalState()"></Label>
+            <FlexboxLayout class="modal-account">
+                <Label  class="demo-account"
+                        text="Usar cuenta de usuario"
+                        borderRadius="15px" borderColor="#063215" borderWidth="2"
+                        (tap)="useDemoAccount('usuario')">
+                </Label>
+                <Label  class="demo-account" 
+                        text="Usar cuenta de invitado"
+                        borderRadius="15px" borderColor="#063215" borderWidth="2"
+                        (tap)="useDemoAccount('invitado')">
+                </Label>
+                <Label  class="demo-account" 
+                        text="Usar cuenta anónima"
+                        borderRadius="15px" borderColor="#063215" borderWidth="2"
+                        (tap)="useDemoAccount('anonimo')">
+                </Label>
+                <Label  class="demo-account" 
+                        text="Usar cuenta de tester"
+                        borderRadius="15px" borderColor="#063215" borderWidth="2"
+                        (tap)="useDemoAccount('tester')">
+                </Label>
+                <Label  class="demo-account" 
+                        text="Usar cuenta de administrador"
+                        borderRadius="15px" borderColor="#063215" borderWidth="2"
+                        (tap)="useDemoAccount('admin')">
+                </Label>
+            </FlexboxLayout>
+        </FlexboxLayout>
+    </FlexboxLayout>
+</AbsoluteLayout>
