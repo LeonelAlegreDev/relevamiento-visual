@@ -5,6 +5,7 @@ import { NotificationPopupComponent } from '../../components/notification-popup/
 import { INotification } from '../../interfaces/i-notification';
 import { UserService } from '../../services/user.service';
 import { NativeScriptCommonModule, NativeScriptFormsModule } from "@nativescript/angular";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'ns-sign-in',
@@ -20,6 +21,7 @@ import { NativeScriptCommonModule, NativeScriptFormsModule } from "@nativescript
 })
 export class SignInComponent {
     private userService = inject(UserService);
+    private router = inject(Router);
 
     // Sistema de notificaciones
     @ViewChild('notificationPopup', { read: ViewContainerRef }) notificationPopupRef: ViewContainerRef;
@@ -61,23 +63,22 @@ export class SignInComponent {
         }
 
         try{
-            const notification: INotification = {
-                message: 'Autenticando usuario: ' + this.email,
+            this.userService.getUserByPassword(this.email, this.password);
+
+            this.notificationPopupCR.instance.pushNotification({
+                message: 'Usuario autenticado correctamente',
                 type: 'success',
-            }
-            this.notificationPopupCR.instance.pushNotification(notification);
-            
-            // TODO: getUsers throw error
-            this.userService.getUsers();
+            });
+            // Redirigir a la página principal
+            this.router.navigate(['/home']);
         }
         catch (error) {
             // Manejo de errores
             const notification: INotification = {
-                message: 'Error al autenticar el usuario',
+                message: error.message,
                 type: 'error',
             };
             this.notificationPopupCR.instance.pushNotification(notification);
-            console.log('Error al iniciar sesión:', error);
         }
 
     }
