@@ -63,7 +63,7 @@ export class SignInComponent {
         }
 
         try{
-            this.userService.getUserByPassword(this.email, this.password);
+            this.userService.login(this.email, this.password);
 
             this.notificationPopupCR.instance.pushNotification({
                 message: 'Usuario autenticado correctamente',

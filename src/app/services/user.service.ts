@@ -12,6 +12,7 @@ export class UserService {
         { id: '4', email: 'anonimo@anonimo.com', password: "444444", role: 'usuario', sex: 'masculino' },
         { id: '5', email: 'tester@tester.com', password: "555555", role: 'tester', sex: 'femenino' }
     ]
+    protected user: IUser | null = null;
 
     constructor(){
         console.log('User service initialized');
@@ -20,12 +21,13 @@ export class UserService {
     ngOnInit() {
         console.log('User service onInit');
     }
-    getUsers(){
-        console.log('Getting users...');
+    getUser(){
+        return this.user;
     }
-    getUserByPassword(email: string, password: string): IUser {
+    login(email: string, password: string): IUser {
         const user = this.userCollection.find(user => user.email === email && user.password === password);
         if (user) {
+            this.user = user;
             return user;
         } else {
             throw new Error('Correo electrónico o contraseña incorrectos');
