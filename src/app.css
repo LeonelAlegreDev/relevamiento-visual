@@ -6,17 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.ns-root {
-    --primary-color: #f8cf84;
-    --accent-color: #f2ae1c;
-    --secondary-color: #4c7031;
-    --light-color: #f3dfbf;
-    --dark-color: #ecc165;
-    --complementary-color: #84ADF8;
-    --complementary-color-light: #c3d5f6;
-    --complementary-color-dark: #3e4e6c;
-    --text-color-light: #fceccd;
-    --text-color-dark: #063215;
+.ns-root {    
+    --accent-color: #605ca8;
+    --secondary-color: #00a39d;
+    --primary-color: #007ba0;
+    --light-color: #d5f5ff;
+    --dark-color: #00012d;
 }
 .page{
     padding: 20px 25px;
@@ -28,7 +23,7 @@
     padding: 15 20;
     font-size: 18;
     border-radius: 15px;
-    color: var(--text-color-light);
+    color: var(--light-color);
 }
 .btn-primary {
     background-color: var(--accent-color);
@@ -39,15 +34,11 @@
     background-color: var(--secondary-color);
     color: white;
 }
-.btn-complementary {
-    background-color: var(--complementary-color);
-    color: white;
-}
 
 .title{
     font-size: 40px;
     text-align: center;
-    color: var(--text-color-dark);
+    color: var(--dark-color);
     font-weight: 600;
     margin: 80px;
 }
